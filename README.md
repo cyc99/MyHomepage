@@ -14,3 +14,6 @@ Hi! This repo is to create my homepage to provide my personal portfolio.
 ## Main page (App.js)
 I thought that animated text in the middle of center gives greater user experience.
 So, I planned to implement the animated feature.
+
+Known Bugs:
+Since there is some delay time on every interval, text change doesn't work properly.
