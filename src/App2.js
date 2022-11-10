@@ -142,32 +142,32 @@ function App2() {
           setTab(0)
         }}>
           <Logo>CHOI's</Logo>
-          <Logo style={{'font-size': 5}}></Logo>
+          <Logo style={{'fontSize': 5}}></Logo>
         </div>
         <div className="item"></div>
         <div className="item" onClick={() => {
             tabRef.current[1].scrollIntoView({behavior:'smooth'})
             setTab(1)
           }}
-          style = {curTab == 1 ? { 'color': 'red', 'font-weight' : 'bold'} : { 'color': 'white', 'font-weight' : 'normal'}}
+          style = {curTab == 1 ? { 'color': 'red', 'fontWeight' : 'bold'} : { 'color': 'white', 'fontWeight' : 'normal'}}
         ><TabText>About</TabText></div>
         <div className="item" onClick={() => {
             tabRef.current[2].scrollIntoView({behavior:'smooth'})
             setTab(2)
           }}
-          style = {curTab == 2 ? { 'color': 'red', 'font-weight' : 'bold'} : { 'color': 'white', 'font-weight' : 'normal'}}
+          style = {curTab == 2 ? { 'color': 'red', 'fontWeight' : 'bold'} : { 'color': 'white', 'fontWeight' : 'normal'}}
         ><TabText>Skills</TabText></div>
         <div className="item" onClick={() => {
             tabRef.current[3].scrollIntoView({behavior:'smooth'})
             setTab(3)
           }}
-          style = {curTab == 3 ? { 'color': 'red', 'font-weight' : 'bold'} : { 'color': 'white', 'font-weight' : 'normal'}}
+          style = {curTab == 3 ? { 'color': 'red', 'fontWeight' : 'bold'} : { 'color': 'white', 'fontWeight' : 'normal'}}
         ><TabText>Projects</TabText></div>
         <div className="item" onClick={() => {
             tabRef.current[4].scrollIntoView({behavior:'smooth'})
             setTab(4)
           }}
-          style = {curTab == 4 ? { 'color': 'red', 'font-weight' : 'bold'} : { 'color': 'white', 'font-weight' : 'normal'}}
+          style = {curTab == 4 ? { 'color': 'red', 'fontWeight' : 'bold'} : { 'color': 'white', 'fontWeight' : 'normal'}}
         ><TabText>Contact</TabText></div>
       </div>
       <Inner ref={e => (tabRef.current[0] = e)} min-height='${unitHeight * 100}'>
@@ -185,12 +185,15 @@ function App2() {
         <AboutPage/>
       </Inner>
 
-      <Inner ref = {e => (tabRef.current[2] = e)}>
-      <PageName>Skills</PageName>
-      </Inner>
+      <SkillInner ref = {e => (tabRef.current[2] = e)} style = {{'padding': '0 10vh'}}>
+      <SkillName>Skills</SkillName>
+      <TestBox>Language<br/><br/><LangStyle>Python</LangStyle><LangStyle>C</LangStyle><LangStyle>JavaScript</LangStyle><LangStyle>Rust</LangStyle></TestBox>
+      <TestBox2>Frameworks<br/><br/><LangStyle>Django</LangStyle><LangStyle>React</LangStyle></TestBox2>
+      <TestBox>ETC<br/><br/><LangStyle>AWS</LangStyle><LangStyle>MySQL</LangStyle><LangStyle>RDBMS</LangStyle></TestBox>
+      </SkillInner>
 
       <Inner ref = {e => (tabRef.current[3] = e)}>
-      <PageName>Projects</PageName>
+      <PageName><ProjStyle>Projects</ProjStyle></PageName>
       </Inner>
 
       <Inner ref = {e => (tabRef.current[4] = e)}>
@@ -212,6 +215,28 @@ const changeGradient = keyframes`
   }
 `;
 
+const ProjStyle = styled.div`
+  &:hover {
+    transform: scale(2);
+    color : red;
+    transition: 0.5s;
+  };
+  transform: scale(1);
+  color : white;
+  transition: 0.5s;
+`;
+
+const LangStyle = styled.div`
+  &:hover {
+    font-weight: bold;
+    transform: scale(1.1);
+    transition: 0.5s;
+  };
+  transform: scale(1);
+  font-weight: normal;
+  transition: 0.5s;
+`;
+
 const Inner = styled.div`
   background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(202,59,115,1) 12%, rgba(170,85,212,1) 24%, rgba(108,144,221,1) 37%, rgba(81,217,230,1) 50%, rgba(105,238,55,1) 66%, rgba(242,179,41,1) 76%, rgba(249,123,20,1) 88%, rgba(255,0,0,1) 100%);
   background-size: 400% 400%;
@@ -219,7 +244,7 @@ const Inner = styled.div`
   animation: ${changeGradient} 60s infinite ease;
   min-height: 100vh;
   display: flex;
-  padding: 0 2rem 0;
+  padding: 0 0 0;
   text-shadow: grey 0px 0 20px;
   align-items: center;
   flex-direction: column;
@@ -227,6 +252,23 @@ const Inner = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
   position: relative;
+`;
+
+const SkillInner = styled(Inner)`
+background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(202,59,115,1) 12%, rgba(170,85,212,1) 24%, rgba(108,144,221,1) 37%, rgba(81,217,230,1) 50%, rgba(105,238,55,1) 66%, rgba(242,179,41,1) 76%, rgba(249,123,20,1) 88%, rgba(255,0,0,1) 100%);
+background-size: 400% 400%;
+height: 100vh;
+animation: ${changeGradient} 60s infinite ease;
+min-height: 100vh;
+display: flex;
+text-shadow: grey 0px 0 20px;
+justify-content: flex-start;
+align-items: flex-start;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+font-size: calc(10px + 2vmin);
+color: white;
 `;
 
 const Tab = styled.div`
@@ -242,6 +284,64 @@ const PageName = styled.div`
   left: 0vw;
   top: 0vh;
   color: white;
+`;
+
+
+const SkillName = styled.div`
+  top: 20vh;
+  position: relative;
+  font-size: min(60px, 7vw);
+  text-align: left;
+  font-weight: bolder;
+  height: 10%;
+  width: 100%;
+  color: white;
+`;
+
+const langKeyframe = keyframes`
+  0% {
+    top: 0%
+  }
+  50% {
+    top: 10%
+  }
+  100% {
+    top: 0%
+  }
+`;
+
+const langKeyframe2 = keyframes`
+  0% {
+    top: 10%
+  }
+  50% {
+    top: 0%
+  }
+  100% {
+    top: 10%
+  }
+`;
+
+const TestBox = styled.div`
+  position: relative;
+  font-size: min(45px, 5vw);
+  text-align: left;
+  font-weight: normal;
+  height: 50%;
+  width: 29%;
+  color: white;
+  animation: ${langKeyframe} 10s ease infinite;
+`;
+
+const TestBox2 = styled.div`
+  position: relative;
+  font-size: min(45px, 5vw);
+  text-align: left;
+  font-weight: normal;
+  height: 50%;
+  width: 29%;
+  color: white;
+  animation: ${langKeyframe2} 10s ease infinite;
 `;
 
 const Postfix = styled.div`
