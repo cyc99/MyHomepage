@@ -1,5 +1,11 @@
 .App {
+  height: 100vh;
   text-align:center;
+  overflow-y: auto;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
 }
 
 .inner {

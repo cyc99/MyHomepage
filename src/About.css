@@ -1,0 +1,25 @@
+.Outer {
+  position: relative;
+  height: 60vh;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: rgba(143, 125, 98, 0.363);
+  padding: 30px;
+}
+.Inner {
+  position: relative;
+  height: 60vh;
+  width: 160vw;
+  display: flex;
+  text-shadow: grey 0px 0 0px;
+  align-items: center;
+  font-size: calc(5px + 2vmin);
+  text-align: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  overflow-y: auto;
+}

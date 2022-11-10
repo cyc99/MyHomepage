@@ -5,6 +5,7 @@
   overflow-y: auto;
 }
 
+.outer::-webkit-scrollbar {
   display: none;
 }
 
@@ -23,4 +24,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: grey 0px 0 0px;
 }
