@@ -1,25 +1,29 @@
-import React from 'react';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import App2 from "./App2";
-import AnimationTest from './Animation';
-import SimpleSlider from './slider';
-import AboutPage from './About';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./components/main/main";
+import GoogleAuthCallback from "./components/login/google_login";
+import Login from "./components/login/login";
+import KakaoAuthCallback from "./components/login/kakao_login";
+import { CookiesProvider } from "react-cookie";
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App2 />} />
-        <Route path="animate" element={<AnimationTest />} />
-        <Route path="slide" element={<SimpleSlider /> } />
-        <Route path="about" element={<AboutPage /> } />
-      </Routes>
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter basename="/">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route
+            path="api/v2/google/login/callback"
+            element={<GoogleAuthCallback />}
+          />
+          <Route path="login" element={<Login />} />
+          <Route
+            path="api/v2/kakao/login/callback"
+            element={<KakaoAuthCallback />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </CookiesProvider>
   );
 }
 

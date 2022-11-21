@@ -11,7 +11,7 @@
 .Inner {
   position: relative;
   height: 60vh;
-  width: 160vw;
+  width: 100vw;
   display: flex;
   text-shadow: grey 0px 0 0px;
   align-items: center;

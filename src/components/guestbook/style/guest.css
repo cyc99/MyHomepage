@@ -1,0 +1,7 @@
+.cont{
+  display: grid;
+  grid-template-rows: 2fr 1fr 6fr;
+  grid-template-columns: 9fr 1fr;
+  background-color: #3e2723;
+}
+
