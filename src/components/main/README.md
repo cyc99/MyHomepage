@@ -1,4 +1,4 @@
-# styles
+# css
 CSS와 관련된 파일을 모아 놓은 폴더입니다.
 # about.js
 홈페이지의 About 페이지에 사용되는 Carousel 슬라이더의 내용을 담당하는 컴포넌트입니다.
